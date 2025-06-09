@@ -281,7 +281,7 @@ def loja_mirandopolis():
 @st.cache_data(ttl=3600)  # Cache por 1 hora
 def processar_dados_carrao():
     try:
-        locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+        #locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
         mes = datetime.datetime.now()
         atual_mes = mes.strftime("%B").upper()
         ultimo_mes = mes - relativedelta(months=1)
