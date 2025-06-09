@@ -13,6 +13,30 @@ def home():
         st.subheader('BEM VINDO A PEDIDOS')
         st.text('SELECIONE UMA DAS LOJAS NO MENU AO LADO')
         st.markdown('---')
+        st.write("--- Verificação de Locale ---")
+
+        # Verificar variáveis de ambiente
+        st.write(f"Variável de ambiente LANG: {os.getenv('LANG')}")
+        st.write(f"Variável de ambiente LC_ALL: {os.getenv('LC_ALL')}")
+
+        # Tentar definir o locale e verificar o resultado
+        try:
+            current_locale = locale.getlocale()
+            st.write(f"Locale atual (antes da tentativa de setlocale): {current_locale}")
+        
+            # Tente definir o locale explicitamente no código, caso o ambiente não o faça
+            # Este pode ser um passo extra, mas pode ajudar a identificar se o problema é a configuração
+            # ou a disponibilidade do locale no sistema.
+            locale.setlocale(locale.LC_ALL, 'C.UTF-8')
+            st.write(f"Locale definido com sucesso para: {locale.getlocale()}")
+            st.success("Configuração de locale pode ter sido bem-sucedida.")
+        except locale.Error as e:
+            st.error(f"Erro ao tentar definir locale no código: {e}")
+            st.warning("O sistema pode não suportar o locale 'C.UTF-8' diretamente ou há outro problema.")
+        except Exception as e:
+            st.error(f"Erro inesperado durante a verificação de locale: {e}")
+        
+        st.write("--- Fim da Verificação de Locale ---")
 
 @st.cache_data(ttl=3600)  # Cache por 1 hora
 def processar_dados_mirandopolis():
