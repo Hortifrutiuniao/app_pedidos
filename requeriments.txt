@@ -1,6 +1,0 @@
-streamlit
-pandas
-datetime
-locale
-dateutil.relativedelta import relativedelta
-os
