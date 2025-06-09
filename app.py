@@ -14,7 +14,7 @@ def home():
         st.text('SELECIONE UMA DAS LOJAS NO MENU AO LADO')
         st.markdown('---')
       
-       @st.cache_data(ttl=3600)  # Cache por 1 hora
+@st.cache_data(ttl=3600)  # Cache por 1 hora
 def processar_dados_mirandopolis():
     try:
         #locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
