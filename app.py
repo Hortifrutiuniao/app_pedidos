@@ -36,7 +36,7 @@ def home():
         except Exception as e:
             st.error(f"Erro inesperado durante a verificação de locale: {e}")
         
-        st.write("--- Fim da Verificação de Locale ---")
+            st.write("--- Fim da Verificação de Locale ---")
 
 @st.cache_data(ttl=3600)  # Cache por 1 hora
 def processar_dados_mirandopolis():
