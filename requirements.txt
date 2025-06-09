@@ -1,7 +1,6 @@
 streamlit
 pandas
 datetime
-locale
 relativedelta
 dateutil.relativedelta 
 os
