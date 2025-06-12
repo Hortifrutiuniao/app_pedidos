@@ -55,7 +55,7 @@ def pegarelatorios():
 @st.cache_data(ttl=3600)
 def processa_dados(estoque, codigo_barras, venda_mes_atual, venda_ultimo_mes, venda_penultimo_mes):
     try:
-        locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+        #locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
         mes = datetime.datetime.now()
         atual_mes = mes.strftime("%B").upper()
         ultimo_mes = mes - relativedelta(months=1)
