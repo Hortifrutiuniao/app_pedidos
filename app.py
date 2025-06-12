@@ -245,23 +245,7 @@ def pedido():
                 "Qtde": st.column_config.NumberColumn("Qtde", min_value=0, step=1)
             }
         )
-        def salvar_excel_local(df, nome_arquivo="pedido.xlsx"):
-            caminho = os.path.join("temp", nome_arquivo)
-            os.makedirs("temp", exist_ok=True)
-            df.to_excel(caminho, index=False)
-            return caminho
-
-        # Gerar o arquivo Excel e exibir botão de download
-        if not st.session_state.pedidos.empty:
-            caminho_excel = salvar_excel_local(st.session_state.pedidos)
-
-            with open(caminho_excel, "rb") as f:
-                st.download_button(
-                    label="📥 Baixar Pedido em Excel",
-                    data=f,
-                    file_name="pedido.xlsx",
-                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                )
+       
 
 @st.cache_data(ttl=3600)  # Cache por 1 hora
 def processar_dados_mirandopolis(estoque, codigo_barras, venda_mes_atual, venda_ultimo_mes, venda_penultimo_mes):
