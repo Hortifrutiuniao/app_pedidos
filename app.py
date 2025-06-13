@@ -62,7 +62,7 @@ def processa_dados(estoque, codigo_barras, venda_mes_atual, venda_ultimo_mes, ve
         penultimo_mes = mes - relativedelta(months=2)
 
         # Processamento do estoque
-        excluir_colunas = ['Preço Venda','Total Venda','Custo c/ Imposto','Custo s/ Imposto','Total Custo c/ Imposto','Total Custo s/ Imposto','Curva']
+        excluir_colunas = ['Preço Venda','Total Venda','Custo c/ Imposto','Custo s/ Imposto','Total Custo c/ Imposto','Total Custo s/ Imposto']
         estoque = estoque.drop(columns=excluir_colunas)
         
         # Loop para copiar valores de células ímpares para células pares
